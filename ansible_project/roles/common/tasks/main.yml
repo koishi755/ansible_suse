@@ -1,0 +1,7 @@
+---
+
+- include_tasks: shell.yml
+- include_tasks: install-packages.yml
+
+
+...

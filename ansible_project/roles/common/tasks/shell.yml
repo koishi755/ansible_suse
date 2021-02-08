@@ -1,0 +1,11 @@
+---
+
+- name: hosts設定
+  shell: |
+    sudo systemctl stop packagekit
+    nmcli device show  `nmcli con show --active | head -n2 | cut -d ' ' -f8` | grep IP4.ADDRESS | cut -d '/' -f1 | rev | cut -d ' ' -f1 | rev > ip
+    sudo echo `cat ip` saptest > /etc/hosts
+    sudo echo '192.168.121.1 myhost' >> /etc/hosts
+    rm ip
+
+...

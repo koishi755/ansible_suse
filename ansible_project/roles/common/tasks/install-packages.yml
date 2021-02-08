@@ -1,0 +1,11 @@
+---
+
+- name: Install pacakges
+  zypper: 
+    name: "{{ item }}"
+  with_items:
+    - unrar
+    - sshpass
+    - git
+
+...

@@ -8,4 +8,19 @@
     - sshpass
     - git
 
+- name: Add a repo and add its gpg key
+  community.general.zypper_repository:
+    enabled: yes
+    repo: 'https://download.opensuse.org/repositories/home:Sauerland/openSUSE_Leap_15.2/home:Sauerland.repo'
+
+
+- name: Install pacakges
+  zypper: 
+    disable_gpg_check: yes
+    name: 'java-1_8_0-openjfx'
+
+- name: '不要なリポジトリを削除'
+  shell: |
+    sudo zypper rr home_Sauerland
+
 ...
